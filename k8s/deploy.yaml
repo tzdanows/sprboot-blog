@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spr-boot-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spr-boot-app
+  template:
+    metadata:
+      labels:
+        app: spr-boot-app
+    spec:
+      containers:
+        - name: spr-boot-app
+          image: tzdanows/monorepo-sprboot:latest
+          ports:
+            - containerPort: 8080
